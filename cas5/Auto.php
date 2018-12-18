@@ -40,9 +40,9 @@ class Auto{
 			//nakon smanjenja dodeljujemo atributu cena sada //umanjenu cenu
 			return $this->cena=$smanjenacena;
 			
-		}else{
-			return $this->cena;
 		}
+			return $this->cena;
+		
 		
 	}
 	

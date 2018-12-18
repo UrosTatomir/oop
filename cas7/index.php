@@ -12,9 +12,10 @@ echo $student;
 echo'<br><br>';
 echo'class Samofinansirajuci extends Student<br>';
 $samofinansirajuci=new Samofinansirajuci("Marko","Maric","100/45",8.3,80000);
+$popust=0.3;
 
 echo $samofinansirajuci;
-
+echo", ako je zadovoljen uslov za popust skolarina se mnozi sa koeficijentom : " .$popust." sto ukupno iznosi :    ".$samofinansirajuci->popustSkolarine($popust); 
 echo'<br><br>';
 
 echo'class Profesor extends Osoba<br>';

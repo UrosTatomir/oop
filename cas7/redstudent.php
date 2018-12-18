@@ -12,5 +12,7 @@ class Redstudent extends Student{
     public function __toString(){
         return parent::__toString()." na godini studija :".$this->godinastudija." , polozio ".$this->brispita." od pocetka studija.<br>";
     }
+    
 }
+
 ?>
