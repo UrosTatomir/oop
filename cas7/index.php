@@ -5,6 +5,7 @@ include 'samofinansirajuci.php';
 include 'profesor.php';
 include 'redstudent.php';
 include 'dekan.php';
+include 'profsoft.php';
 echo'class Student extends Osoba<br>';
 $student = new Student("Maja","Maric","123/23",8.5);
 
@@ -39,6 +40,18 @@ $br='125/56';
 $pr=7.8; 
 $gods=3; 
 $bris=24;
+echo"<br><br>";
+echo"class Profesor softwera extends Profesor<br>";
+$i='Andrej';
+$p='Andrejevic'; 
+$rs=34; 
+$pred='robotika'; 
+$soft='PHP JAVA'; 
+$teh='C++';
+$profsoft=new Profsoft($i, $p, $rs, $pred, $soft, $teh);
+echo $profsoft;
+echo"<br><br>";
+echo"class Redovni student extends Student<br>";
 $redstudent=new Redstudent($i, $p, $br, $pr, $gods, $bris);
 
 echo$redstudent;
