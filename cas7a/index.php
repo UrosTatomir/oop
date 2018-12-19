@@ -1,0 +1,42 @@
+<?php
+include 'vozila.php';
+include 'automobili.php';
+include 'sportautomobili.php';
+include 'suv.php';
+
+echo"klasa automobili extends vozila <br>";
+$name='Limunzina'; 
+$engine=3.0; 
+$wheels=4; 
+$fuel='gasoline'; 
+$mk='BMW';
+$type='330iX'; 
+$god=2012;
+$automobili=new Automobili($name, $engine, $wheels, $fuel, $mk, $type, $god);
+echo $automobili;
+echo"<br><br>";
+echo"Klasa Sportski automobili extends automobili<br>";
+$name = 'Coupe';
+$engine = 4.0;
+$wheels = 4;
+$fuel = 'gasoline';
+$mk = 'Jaguar';
+$type = 'F-type';
+$god = 2016;
+$gt='grantourismo';
+$sportautomobili=new Sportautomobili($name, $engine, $wheels, $fuel, $mk, $type, $god, $gt);
+echo $sportautomobili;
+echo"<br><br>";
+echo"klasa SUV extends  Automobili <br>";
+$name = 'SUV';
+$engine = 2.4;
+$wheels = 4;
+$fuel = 'diesel';
+$mk = 'Toyota';
+$type = 'Landcruiser';
+$god = 2017;
+$awd ='4x4';
+$suv=new Suv($name, $engine, $wheels, $fuel, $mk, $type, $god, $awd);
+echo $suv;
+echo"<br><br>";
+?>
