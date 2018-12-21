@@ -6,6 +6,6 @@ require 'honorarni.php';
 $stalni= new Stalni("milan","kolar",60000);
 echo $stalni;
 echo"<br><br>";
-$honorarni=new Honorarni("Pero","nikolic",400,40);
+$honorarni=new Honorarni("Pero","nikolic",400,45);
 echo $honorarni;
 ?>
