@@ -3,6 +3,8 @@ include 'vozila.php';
 include 'automobili.php';
 include 'sportautomobili.php';
 include 'suv.php';
+include 'polovniautomobili.php';
+include 'kamioni.php';
 
 echo"klasa automobili extends vozila <br>";
 $name='Limunzina'; 
@@ -39,4 +41,29 @@ $awd ='4x4';
 $suv=new Suv($name, $engine, $wheels, $fuel, $mk, $type, $god, $awd);
 echo $suv;
 echo"<br><br>";
+echo"klasa Polovniautomobili extends Automobili<br>";
+$name = 'Touring';
+$engine = 2.0;
+$wheels = 4;
+$fuel = 'diesel';
+$mk = 'Opel';
+$type = 'Astra';
+$god = 2017;
+$price=10000;
+$usercar=new Polovniautomobili($name, $engine, $wheels, $fuel, $mk, $type, $god, $price);
+echo $usercar;
+echo"<br><br>";
+echo"klasa Kamioni extends Vozila<br>";
+$name = 'Kamion';
+$engine = 9.0;
+$wheels = 10;
+$fuel = 'gasoline';
+$load = '25 tona';
+$trailer = '10 tona';
+$mkamiona = 'Mercedes';
+$godkamiona =2010;
+$kamioni=new Kamioni($name, $engine, $wheels, $fuel, $load, $trailer, $mkamiona, $godkamiona);
+echo $kamioni;
+echo"<br><br>";
+
 ?>
