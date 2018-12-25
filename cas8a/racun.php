@@ -11,7 +11,7 @@ abstract class Racun{
 
     }
     public function __toString(){
-        return "stanje racuna: ".$this->stanje;
+        return " racun - stanje: ".$this->stanje;
     }
 }
 ?>
