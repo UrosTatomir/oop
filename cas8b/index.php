@@ -4,10 +4,10 @@ require 'tekuci.php';
 require 'devizni.php';
 //tekuci racun-----
 $tekuci=new Tekuci();
-$tekuci->uplata(60000);
+$tekuci->setUplata(60000);
 $tekuci->setLimit(40000);
 //tekuci isplata
-$tekuci->isplataTekuci(61000);
+$tekuci->isplataTekuci(80000);
 echo $tekuci;
 
 echo'<br>';
@@ -15,6 +15,7 @@ echo'<br>';
 // devizni----
 
 $dev=new Devizni();
-$dev->uplata(3500);
+$dev->setUplata(3500);
+$dev->isplataDevizni(1400);
 echo $dev;
 ?>

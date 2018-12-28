@@ -9,7 +9,7 @@ $din->uplata(50000);
 $din->setLimit(40000);
 // echo $din;  test 
 echo"<br><br>";
-$din->isplataDinarski(89999);
+$din->isplataDinarski(49999);
 echo"<br>".$din;
 echo"<br>";
 
