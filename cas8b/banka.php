@@ -1,7 +1,7 @@
 <?php
 abstract class Banka{
    protected $stanje; //atribut
-   
+  
    public function setUplata($iznos){
        if($iznos>0){
            //$this-stanje=$this->stanje+$iznos;
