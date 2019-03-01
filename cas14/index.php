@@ -21,24 +21,49 @@ foreach($cars as $value){
 echo"<br>";
 echo"<h3>Prikaz svih vozaca koji su zaduzili isto vozilo </h3>";
 
-$drivers=$dao->getAllDriversObligateCar(25);
+$drivers=$dao->getAllDriversObligateCar(1);
+
 foreach($drivers as  $driver){
-    echo"$driver[ime] $driver[prezime] id vozila = $driver[idvozila]<br>";
+    echo"$driver[ime] $driver[prezime] zaduzio je $driver[imeproizvodjaca] $driver[model] $driver[kategorija] $driver[godiste]<br>";
 }
 echo"<br>";
 echo"<h3>Prikaz svih vozila koje je zaduzio jedan vozac</h3>";
 $d=30;
-echo"<h3>id vozaca = $d ,zaduzio je sledeca vozila : </h3><br>";
 $cars=$dao->getAllCarsObligateDriver($d);
 foreach($cars as $car){
-    echo"$car[imeproizvodjaca] $car[model] $car[kategorija] $car[godiste] $car[cena]<br>";
+    echo"$car[ime] $car[prezime] $car[imeproizvodjaca] $car[model] $car[kategorija] $car[godiste] $car[cena]<br>";
 }
 echo"<br>";
-$c='Japan';
-echo"<h3>Prikaz svih proizvodjaca vozila po zemlji porekla $c</h3><br>";
-$cars=$dao->getAllProducerByCountry($c);
+// $c='Japan';
+echo"<h3>Prikaz svih proizvodjaca vozila po zemlji porekla </h3><br>";
+$cars=$dao->getAllProducerByCountry('Japan');
 foreach($cars as $car){
-    echo"$car[imeproizvodjaca] $car[model] $car[kategorija] $car[godiste] $car[cena]<br>";
+    echo"$car[imeproizvodjaca] $car[model] $car[zemljaporekla] $car[kategorija] $car[godiste] $car[cena]<br>";
+}
+
+echo"<br>";
+echo"<h3>Prikaz svih vozila po trazenoj zemlji porekla </h3>";
+$carsbycountry=$dao->getAllCarsByCountry('Nemacka');
+foreach($carsbycountry as $car){
+  echo"$car[imeproizvodjaca] $car[zemljaporekla] $car[model] $car[godiste]<br>";
+}
+echo"<br>";
+echo"<h3>Prikaz svih vozila po vremenu kategorije</h3>";
+$carsbycat=$dao->getAllCarsByCatTime(8);
+foreach($carsbycat as $car){
+    echo"$car[imeproizvodjaca]$car[model]$car[godiste]$car[kategorija]$car[trajanje]<br>";
+}
+echo"<br>";
+echo"<h3>prikaz svih vozila koje je zaduzio jedan vozac</h3>";
+$carsbyonedriver=$dao->getAllCarsOneDriver(2);
+foreach($carsbyonedriver as $car){
+    echo"$car[imeproizvodjaca] $car[model] $car[kategorija] $car[ime] $car[prezime]<br>";
+}
+echo"<br>";
+echo"<h3>Prikaz svih vozila po zemlji porekla i koji vozaci su ih zaduzili</h3>";
+$carscountry=$dao->getAllCarsByCountryProduce('nemacka');
+foreach($carscountry as $car){
+    echo"$car[imeproizvodjaca] $car[model] $car[kategorija] $car[godiste] $car[zemljaporekla] $car[ime] $car[prezime] $car[godiste] $car[opis] $car[trajanje]<br>";
 }
 
 // $persons=$dao->getLastNPersons(4);
