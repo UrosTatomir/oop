@@ -167,10 +167,8 @@ class Controller{
   }//kraj function insertAssign 
 
   public function showDrivers(){
-    $idvozaca = isset($_GET['idvozaca']) ? $_GET['idvozaca'] : "";
+
      $dao = new DAO();
-     $driver=$dao->getDriverById($idvozaca);
-     //dodato da u alldrivers popuni prazan string idvozaca
      $alldrivers=$dao->getAllDrivers();
      include 'alldrivers.php';
 
@@ -178,14 +176,9 @@ class Controller{
   }
 
   public function showCars(){
-  $idvozila=isset ( $_GET['idvozila'])?$_GET [ 'idvozila']:""; 
-  //dodeljena varijabla zbog ponovnog upisivanja getCarById()
-   
+      
      $dao = new DAO();
-     
      $allcars=$dao->getAllCars();
-     $car=$dao->getCarById($idvozila);
-     //dodato da u alldrivers popuni prazan string idvozila
       include 'allcars.php';
   }
   public function showDriverByCars(){
@@ -316,14 +309,13 @@ class Controller{
             $dao->updateDriver($ime,$prezime ,$godiste, $idvozaca);
             $alldrivers=$dao->getAllDrivers();
             //ponovo moraju da se ucitaju svi vozaci
-            $driver=$dao->getDriverById($idvozaca);
-            //ponovo ucitavamo red za dati idvozaca koji je editovan
-            $msg="Uspesan unos vozaca";
+            $msg="Uspesna izmena podataka vozaca";
             include 'alldrivers.php';
         }else {
  
             $msg="Molimo vas da popunite formular ispravno";
             include 'editdriver.php';
+        
     }
 
     }//end editDriver()
@@ -386,10 +378,9 @@ class Controller{
         if(count($errors)==0){
               // pravimo objekat klase DAO za insert podataka u bazu
             $dao=new DAO();
-            $dao->updateCar($imeproizvodjaca, $model,$kategorija, $godiste,$cena,$idvozila);
+            $dao->updateCar($imeproizvodjaca, $model, $kategorija, $godiste,$cena,$idvozila);
             $allcars=$dao->getAllCars();
-            $car=$dao->getCarById($idvozila);
-            $msg="Uspesan unos ";
+            $msg="Uspesna izmena podataka za vozilo ";
             include 'allcars.php';
             //    var_dump("uspesan insert podataka");
         }else{
