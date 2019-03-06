@@ -25,7 +25,7 @@
 <body>
     <div class="container-fluid">
         <br><br>
-      <div class="container">
+        <div class="container">
             <br><br>
             <?php
             include '../includes/nav.php';
@@ -35,37 +35,49 @@
             ?>
             <h4>Insert Driver</h4>
             <form action="routes.php">
-                <input type="text" name="ime" placeholder="Unesite Ime">
-                <span style="color:red;">
-                    <?php if (array_key_exists('ime', $errors)) {
-                      echo $errors['ime'];
-                    } ?>
-                </span>
-                <br><br>
-                <input type="text" name="prezime" placeholder="Unesite Prezime">
-                <span style="color:red;">
-                    <?php if (array_key_exists('prezime', $errors)) {
-                      echo $errors['prezime'];
-                    } ?>
-                </span>
-                <br><br>
-                <input type="number" name="godiste" placeholder="Unesite Godiste">
-                <span style="color:red;">
-                    <?php if (array_key_exists('godiste', $errors)) {
-                      echo $errors['godiste'];
-                    } ?>
-                </span>
-                <br><br>
-                <input type="submit" name="page" value="insertvozaca">
+                <div class="form-group">
+                    <label for="ime">Ime</label>
+                    <br>
+                    <input type="text" name="ime" placeholder="Unesite Ime">
+                        
+                            <span class="alert-danger">
+                                <?php if (array_key_exists('ime', $errors)) {
+                                    echo $errors['ime'];
+                                } ?>
+                            </span>
+                    <br><br>
+                    <label for=" prezime">Prezime</label>
+                            <br>
+                            <input type="text" name="prezime" placeholder="Unesite Prezime">
+                           
+                                <span class="alert-danger">
+                                    <?php if (array_key_exists('prezime', $errors)) {
+                                        echo $errors['prezime'];
+                                    } ?>
+                                </span>                             
+                            <br><br>
+                            <label for="godiste">Godiste</label>
+                            <br>
+                            <input type="number" name="godiste" placeholder="Unesite Godiste">
+                                <span class="alert-danger">
+                                    <?php if (array_key_exists('godiste', $errors)) {
+                                        echo $errors['godiste'];
+                                    } ?>
+                                </span>
+                                
+                            <br><br>
+                            <input type="submit" class="btn btn-warning" name="page" value="insertvozaca">
+                    </div>
             </form>
-            <?php
-            echo "<span style=color:red;>$msg</span>";
-            ?>
+                <?php
+                echo "<span class=alert-warning>$msg</span>";
+                ?>
             <br><br>
-            <form action="routes.php">
-                <button type="submit" name="page" value="showhome">
+            <form class="form-group" action="routes.php">
+                <button type="submit" class="btn btn-outline-primary" name="page" value="showhome">
                     <h6>Home page</h6>
                 </button>
+
             </form>
         </div>
         <!--end container-->

@@ -167,22 +167,28 @@ class Controller{
   }//kraj function insertAssign 
 
   public function showDrivers(){
-
+     $idvozila=isset($_GET['idvozila'])?$_GET['idvozila']:"";
+     
      $dao = new DAO();
      $alldrivers=$dao->getAllDrivers();
+     $driver=$dao->getDriverById($idvozila); //dodato zbog $driver jer ga trazi u alldrivers,ali ide kao prazan string
      include 'alldrivers.php';
 
 
   }
 
   public function showCars(){
-      
+
+    $idvozila=isset($_GET['idvozila'])?$_GET['idvozila']:""; 
+
      $dao = new DAO();
      $allcars=$dao->getAllCars();
+     $car=$dao->getCarById($idvozila);
+     //dodato da u alldrivers popuni prazan string idvozila
       include 'allcars.php';
   }
   public function showDriverByCars(){
-
+       
     include 'driverbycars.php';
 
   }
@@ -197,7 +203,8 @@ class Controller{
             $errors['idvozaca'] = "Morate odabrati vozaca";
     }
     if(count($errors)==0){
-      
+
+     
       include 'showdriverbycars.php';
 
     }else{
@@ -223,6 +230,7 @@ class Controller{
         }
         if (count($errors) == 0) {
 
+          
             include 'showcarbydrivers.php';
         } else {
             $msg = "Molimo vas da formular popunite ispravno";
@@ -239,7 +247,8 @@ class Controller{
 
         $dao= new DAO();
         $dao->deleteDriver($idvozaca);
-
+        $driver=$dao->getDriverById($idvozaca);
+        // dodajemo za trazenu $driver varijablu koja u ovom slucaju prazan string
         $alldrivers=$dao->getAllDrivers(); //ponovno izvlacenje svih vozaca nakon brisanja 
         $msg="Podatak obrisan"; 
         include 'alldrivers.php';
@@ -255,7 +264,8 @@ class Controller{
 
             $dao = new DAO();
             $dao->deleteCar($idvozila);
-
+            $car=$dao->getCarById($idvozila);
+            //dodato zbog varijable $car koja je u ovom slucaju prazan string
             $allcars = $dao->getAllCars(); //ponovno izvlacenje svih automobila nakon brisanja 
             $msg = "Podatak obrisan";
             include 'allcars.php';
@@ -309,6 +319,7 @@ class Controller{
             $dao->updateDriver($ime,$prezime ,$godiste, $idvozaca);
             $alldrivers=$dao->getAllDrivers();
             //ponovo moraju da se ucitaju svi vozaci
+            $driver=$dao->getDriverById($idvozaca);
             $msg="Uspesna izmena podataka vozaca";
             include 'alldrivers.php';
         }else {
@@ -380,6 +391,7 @@ class Controller{
             $dao=new DAO();
             $dao->updateCar($imeproizvodjaca, $model, $kategorija, $godiste,$cena,$idvozila);
             $allcars=$dao->getAllCars();
+            $car=$dao->getCarById($idvozila);
             $msg="Uspesna izmena podataka za vozilo ";
             include 'allcars.php';
             //    var_dump("uspesan insert podataka");

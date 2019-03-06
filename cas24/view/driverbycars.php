@@ -37,30 +37,32 @@
             <br><br>
             <h4>Choose driver</h4>
             <form action="routes.php">
-
-                <select name="idvozaca">
-                    <option value=""></option>
-                    <?php
-                    foreach ($alldrivers as $driver) {
-                      echo "<option value='$driver[idvozaca]'>$driver[ime] ,$driver[prezime] ,$driver[godiste]</option>";
-                    }
-                    ?>
-                </select>
-                <span style="color:red;">
-                    <?php
-                    if (array_key_exists('idvozaca', $errors)) {
-                      echo $errors['idvozaca'];
-                    }
-                    ?>
-                </span>
-                <br><br>
-                <input type="submit" name="page" value="ChooseDriverByCars">
+                <div class="form-group">
+                    <select class="form-control col-3" name="idvozaca">
+                        <option value=""></option>
+                        <?php
+                        foreach ($alldrivers as $driver) {
+                            echo "<option value='$driver[idvozaca]'>$driver[ime] ,$driver[prezime] ,$driver[godiste]</option>";
+                        }
+                        ?>
+                    </select>
+                    <span class="alert-danger">
+                        <?php
+                        if (array_key_exists('idvozaca', $errors)) {
+                            echo $errors['idvozaca'];
+                        }
+                        ?>
+                    </span>
+                    <br><br>
+                    <input type="submit" class="btn btn-primary" name="page" value="ChooseDriverByCars">
+                </div>
             </form>
-            <?php echo "<span style=color:red;>$msg</span>";  ?> <br><br>
+            <?php echo "<span class=alert-danger >$msg</span>";  ?> <br><br>
             <form action="routes.php">
-                <button type="submit" name="page" value="showhome">
+                <button type="submit" class="btn btn-outline-primary" name="page" value="showhome">
                     <h6>Home page</h6>
                 </button>
+            
             </form>
         </div>
     </div>

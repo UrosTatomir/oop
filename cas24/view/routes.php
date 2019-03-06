@@ -32,7 +32,7 @@ switch($page){
    $controller->showAssign();
    break;
 
-   case 'dodeli':
+   case 'assign':
    $controller->insertAssign();
    break;
 

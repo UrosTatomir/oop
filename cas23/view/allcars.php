@@ -45,11 +45,11 @@
     </table>
     <?php
     $msg = isset($msg) ? $msg : "";
-    echo "<span style=color:blue;>$msg</msg>";
+    echo "<span class=alert-danger>$msg</msg>";
     ?>
     <br><br>
     <form action="routes.php">
-        <button type="submit" name="page" value="showhome">
+        <button type="submit" class="btn btn-outline-primary" name="page" value="showhome">
             <h3>Home page</h3>
         </button>
     </form>
