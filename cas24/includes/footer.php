@@ -1,3 +1,4 @@
+</div> <!-- end container fluid-->
 <div class="card text-center">
     <div class="card-header" style="background-color:#E7F5C0;">
         <ul class="nav nav-pills card-header-pills">
@@ -49,4 +50,7 @@
             </div>
         </div>
     </div>
-</div> 
+</div>
+</body>
+
+</html> 
