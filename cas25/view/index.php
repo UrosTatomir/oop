@@ -7,7 +7,7 @@
         <div class="row justify-content-md">
             <!-- <div class="row justify-content-md shadow-lg p-3 mb-5"> -->
             <img src="../images/johanunsplash.jpg" class="card-img" width="1280"   alt="card image" />
-            <div class="card-img-overlay  ">
+            <!-- <div class="card-img-overlay  ">
                 <hr>
                 <div class=" col-4 bg-light" style="opacity:0.5;">
                     <br>
@@ -26,7 +26,7 @@
                     <h3 class="font-weight-bold"><a class="text-body" href="routes.php?page=showcarbydrivers">Show car by drivers</a></h3>
                     <br>
                 </div>
-            </div>
+            </div> -->
 
 
         </div>
