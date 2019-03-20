@@ -405,8 +405,84 @@ class Controller{
     }
 
 
-    }//end editCar()
+ }//end editCar()
 
+ public function login(){
+
+     $username=isset($_POST['username'])?$_POST['username']:"";
+     $password=isset( $_POST['password'])?$_POST['password']:"";
+
+     if(!empty($username) && !empty($password)){
+         $dao= new DAO();
+         $korisnik=$dao->login($username,$password);
+         if($korisnik){
+         //uvek kada koristimo sesiju prvo treba da je startujemo
+         session_start();
+         $_SESSION['ulogovan']=$korisnik;
+         include 'index.php';
+
+         }else{
+             $msg="Pogresan username ili password";
+             include 'login.php';
+         }
+
+     }else{
+       $msg="Morate uneti username i password";
+       include 'login.php';
+     }
+
+ }
+ public function registration(){
+   $ime=isset($_POST['ime'])?$_POST['ime']:"";
+   $prezime=isset($_POST['prezime'])?$_POST['prezime']:"";
+   $email=isset($_POST['email'])?$_POST['email']:"";
+   $username=isset($_POST['username'])?$_POST['username']:"";$password=isset($_POST['password'])?$_POST['password']:"";$confirmpassword=isset($_POST['confirmpassword'])?$_POST['confirmpassword']:"";
+
+   $errors=array();
+
+   if(empty($ime)){
+       $errors['ime']="Morate uneti ime";
+   }
+   if(empty($prezime)){
+       $errors['prezime']="Morate uneti prezime";
+   }
+   if(empty($email)){
+       $errors['email']="Morate uneti email";
+   }else{
+
+     if(filter_var($email, FILTER_VALIDATE_EMAIL)==false){
+         $errors['email']="Morate uneti validan email";
+     }
+   }
+   if(empty($username)){
+       $errors['username']="Morate uneti username";
+   }
+   if(empty($password)){
+       $errors['password']="Morate uneti password";
+   }
+   if(empty($confirmpassword)){
+
+       $errors['confirmpassword']="Morate potvrditi password";
+
+   }else{ 
+       if ($password !== $confirmpassword){
+
+                $errors['confirmpassword'] = "Polja za password se ne podudaraju";
+            }
+        }
+   
+   if(count($errors)==0){
+       $dao=new DAO();
+       $dao->insertUser($ime,$prezime,$email,$username,$password);
+       $msg="Uspesno ste se registrovali, ulogujte se";
+       include 'login.php';
+   }else{
+
+      $msg="Morate ispravno uneti podatke u formu ";
+      include 'register.php';
+   }
+
+ }
 
 } // end class Controller
 
