@@ -36,7 +36,7 @@
  </table>
  <?php
   $msg=isset($msg)?$msg:"";
-  echo"<span style=color:blue;>$msg</msg>";
+  echo"<span style=color:blue;>$msg</span>";
  ?>
  <br><br>
  <form action="routes.php">
