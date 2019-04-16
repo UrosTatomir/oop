@@ -93,7 +93,8 @@
                             <th>Kategorija</th>
                             <th>Godiste</th>
                             <th>Cena</th>
-                            <th colspan="2">Akcija</th> <!-- spajamo kolone colspan-->
+                            <th colspan="2">Akcija</th> 
+                        </tr>
                     </thead>
                     <tbody>
                         <?php
@@ -119,7 +120,7 @@
                             echo "</tr>";
                         }
                         ?>
-                        </tr>
+                        
                     </tbody>
                 </table>
                 <?php

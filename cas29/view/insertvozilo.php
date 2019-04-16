@@ -21,7 +21,6 @@
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/scripts.js"></script>
 </head>
-
 <body style="background:linear-gradient(to top,gray,white) no-repeat fixed center;">
     <?php 
     session_start();

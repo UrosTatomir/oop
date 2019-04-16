@@ -43,5 +43,5 @@
     </table>
     <h3><a href="routes.php?page=showinsert">Insert new articles</a></h3>
 </body>
-
+<!--nele.djordjevic@gmail.com  poslati cas29-->
 </html> 

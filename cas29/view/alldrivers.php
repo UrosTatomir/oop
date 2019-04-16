@@ -98,9 +98,7 @@
                     <tbody>
                         <?php
                         if (isset($driver['idvozaca'])) $driver['idvozaca'];
-
                         //jedan od nacina stampe tabele
-
                         foreach ($alldrivers as $value) {
                             // if(isset($driver['idvozaca']))$driver['idvozaca'];
                             if ($value['idvozaca'] == $driver['idvozaca']) {
