@@ -54,10 +54,10 @@
                 </li>
                 <?php if(empty($_SESSION['logged_in'])){ ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="routes.php?page=showlogin">Login<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="routes.php?page=showlogin_1">Login<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item ">
-                    <a class="nav-link" href="routes.php?page=showregister">Register<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="routes.php?page=showregister_1">Register<span class="sr-only">(current)</span></a>
                 </li>
                  <?php } ?>
                 <?php if (!empty($_SESSION['cart'])) { ?>

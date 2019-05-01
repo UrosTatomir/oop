@@ -26,7 +26,7 @@
 <body style="background:linear-gradient(to top,gray,white) no-repeat fixed center;">
     <nav class="navbar fixed-top navbar-expand-lg  navbar-dark bg-dark">
         <a class="navbar-brand" href="../view/routes.php?page=showindex" style="font-family: cursive, sans-serif; font-size:18px; color: #FDE600;">
-            CONTINUE SHOPP</a>
+            COMPUTER WEBSHOP</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -58,51 +58,13 @@
 
         </div>
     </nav>
-    <?php
-    $errors = isset($errors) ? $errors : array();
-    $msg = isset($msg) ? $msg : "";
-    ?>
     <div class="container-fluid">
-        <div class="container mt-5 p-5">
-            <div class="container mt-5 col-4 text-center">
-                <h4>Login</h4>
-                <form action="routes.php" method="post">
-                    <input class="form-control" type="text" name="username" placeholder="username">
-                    <br>
-                    <input class="form-control" type="password" name="password" placeholder=" password">
-                    <br>
-                    <input class="btn btn-primary" type="submit" name="page" value="Log in">
-                </form>
-                &nbsp;
-                <!-- skracenica za razmak ili <br>-->
-                <h5>Don't have an account</h5>
-                <h5>Please - <a class="text-right" href="routes.php?page=showregister">REGISTER</a></h5>
-                <?php
-                if (!empty($msg)) {   //sve sto saljemo includom $msg ide ovako
-                    ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?php echo $msg; ?>
-
-                    </div>
-                <?php
-            } ?>
-                <!--posto message sa index strane ide na ovu stranu saljemo preko header Location taj podatak ide get METODOM PA JE OVDE POTREBNO DA GA POKUPIM IZ GET-a -->
-                <?php if (!empty($_GET['msg'])) {
-                    // $msg = $_GET['msg'];
-                    ?>
-                    <div class="alert alert-danger" role="alert">
-                        <?php
-                        // $msg = $_GET['msg'];
-                        echo $_GET['msg'];
-                        ?>
-                    </div>
-                <?php
-            } ?>
-            </div>
-
-        </div>
-    <?php if(isset($register)&&$register==1){ ?>
-        <div class="container col-4 mb-5 p-5 text-center bg-dark text-white">
+    <div class="container mt-5 p-5">
+        <?php
+        $errors = isset($errors) ? $errors : array();
+        $msg = isset($msg) ? $msg : "";
+        ?>
+        <div class="container col-4 text-center">
             <h4>Registration</h4>
             <form action="routes.php" method="post">
                 <input class="form-control" type="text" name="name" placeholder="Enter name">
@@ -132,7 +94,6 @@
                         echo $errors['phone'];
                     } ?>
                 </span>
-                <br>
                 <input class="form-control" type="text" name="email" placeholder="Enter email">
                 <span class="alert-danger">
                     <?php if (array_key_exists('email', $errors)) {
@@ -161,7 +122,7 @@
                     } ?>
                 </span>
                 <br>
-                <input class="btn btn-warning" type="submit" name="page" value="Register">
+                <input class="btn btn-primary" type="submit" name="page" value="Register">
             </form>
             <?php
         // echo "<span class=alert-warning>$msg</span>";
@@ -174,16 +135,14 @@
         } ?>
             <!--super fora zapamtiti-->
     </div>
-<?php } ?>
     </div>
-    <!--end container-fluid-->
-    <footer class=" bg-dark fixed-bottom">
-        <div class="container text-center">
+        <footer class=" bg-dark fixed-bottom">
+            <div class="container text-center">
 
-            <p><a class="text-white" href="#">Copyright by PHP DEVLOPERS 2019</a></p>
+                <p><a class="text-white" href="#">Copyright by PHP DEVLOPERS 2019</a></p>
 
-        </div>
-    </footer>
+            </div>
+        </footer>
 </body>
 
 </html>

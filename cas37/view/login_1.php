@@ -1,6 +1,5 @@
 <!DOCTYPE <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -55,7 +54,6 @@
             </ul>
             <!-- <input class="btn btn-outline-warning my-2 my-sm-0" type="submit" name="page" value="Izloguj se"> -->
             </form>
-
         </div>
     </nav>
     <?php
@@ -71,12 +69,12 @@
                     <br>
                     <input class="form-control" type="password" name="password" placeholder=" password">
                     <br>
-                    <input class="btn btn-primary" type="submit" name="page" value="Log in">
+                    <input class="btn btn-primary" type="submit" name="page" value="login">
                 </form>
                 &nbsp;
                 <!-- skracenica za razmak ili <br>-->
                 <h5>Don't have an account</h5>
-                <h5>Please - <a class="text-right" href="routes.php?page=showregister">REGISTER</a></h5>
+                <h5>Please - <a class="text-right" href="routes.php?page=showregister_1">REGISTER</a></h5>
                 <?php
                 if (!empty($msg)) {   //sve sto saljemo includom $msg ide ovako
                     ?>
@@ -99,7 +97,6 @@
                 <?php
             } ?>
             </div>
-
         </div>
     <?php if(isset($register)&&$register==1){ ?>
         <div class="container col-4 mb-5 p-5 text-center bg-dark text-white">
@@ -161,7 +158,7 @@
                     } ?>
                 </span>
                 <br>
-                <input class="btn btn-warning" type="submit" name="page" value="Register">
+                <input class="btn btn-warning" type="submit" name="page" value="register">
             </form>
             <?php
         // echo "<span class=alert-warning>$msg</span>";

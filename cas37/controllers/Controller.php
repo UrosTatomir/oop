@@ -167,7 +167,7 @@ class Controller{
          //uvek kada koristimo sesiju prvo treba da je startujemo
          session_start();
          $_SESSION['logged_in']=$user;
-         include 'checkout.php'; //ovo mora da se promeni kad se vrsi logovanje sa index strane da se vrati na index stranu
+         include 'cart.php'; //ovo mora da se promeni kad se vrsi logovanje sa index strane da se vrati na index stranu
 
          }else{
              $msg= "Incorrect username or password";
@@ -272,6 +272,116 @@ class Controller{
      session_destroy();
      header('Location:login.php');
     
+ }
+public function login_1(){
+
+     $username=isset($_POST['username'])?$_POST['username']:"";
+     $password=isset( $_POST['password'])?$_POST['password']:"";
+
+     if(!empty($username) && !empty($password)){
+         $dao= new DAO();
+         $user=$dao->login($username,$password);
+         if($user){
+         //uvek kada koristimo sesiju prvo treba da je startujemo
+         session_start();
+         $_SESSION['logged_in']=$user;
+         include 'index.php'; //ovo mora da se promeni kad se vrsi logovanje sa index strane da se vrati na index stranu
+
+         }else{
+             $msg= "Incorrect username or password";
+             include 'login_1.php';
+         }
+
+     }else{
+       $msg= "You must enter username and password";
+       include 'login_1.php';
+     }
+}
+public function showRegister_1(){
+     $register=1;
+     include 'login_1.php';
+//   include 'register.php';
+}
+public function registration_1(){
+   $name=isset($_POST['name'])?$_POST['name']:"";
+   $surname=isset($_POST['surname'])?$_POST['surname']:"";
+   $email=isset($_POST['email'])?$_POST['email']:"";
+   $adress=isset($_POST['adress'])?$_POST['adress']:"";
+   $phone=isset($_POST['phone'])?$_POST['phone']:"";
+   $username=isset($_POST['username'])?$_POST['username']:"";
+   $password=isset($_POST['password'])?$_POST['password']:"";
+   $confirmpassword=isset($_POST['confirmpassword'])?$_POST['confirmpassword']:"";
+
+   $errors=array();
+
+   if(empty($name)){
+       $errors['name']= "You need to enter a tname";
+   }
+   if(empty($surname)){
+       $errors['surname']= "You need to enter a surname";
+   }
+   if(empty($email)){
+       $errors['email']= "You need to enter a email";
+
+   }else{
+
+     if(filter_var($email, FILTER_VALIDATE_EMAIL)==false){
+         $errors['email']= "You need to enter a valid email";
+     }else{
+         $dao=new DAO();
+         $mail=$dao->getAllUsers();
+         foreach($mail as $m){
+             if($m['email']==$email){
+              $errors['email']= "This email already exists, please enter another email";
+             }
+         }
+     }
+   }
+   if(empty($adress)){
+       $errors['adress']= "You need to enter a adress";
+   }
+   if(empty($phone)){
+       $errors['phone']= "You need to enter a phone";
+   }
+   if(empty($username)){
+      
+       $errors['username']="You need to enter username";
+   }else{
+       $dao=new DAO();
+       $usernm=$dao->getAllUsers();
+       foreach($usernm as $us){
+        
+         if($us['username']==$username){
+           $errors['username']= "This username already exists, please enter another username";
+         }
+       }
+   }
+   if(empty($password)){
+       $errors['password']="You need to enter password";
+   }
+   if(empty($confirmpassword)){
+
+       $errors['confirmpassword']= "You need to confirm the password";
+
+   }else{ 
+       if ($password !== $confirmpassword){
+
+                $errors['confirmpassword'] = "Password fields do not match";
+            }
+        }
+   if(count($errors)==0){
+       $dao=new DAO();
+       $admin=0;
+       $dao->register($name,$surname,$email,$adress,$phone,$username,$password,$admin);
+       $msg= "You have successfully registered, please log in";
+       include 'login_1.php';
+   }else{
+
+      $msg= "You need to enter the data correctly in the form ";
+      $register=1;
+      include 'login_1.php';
+   }
+
  }
   
  

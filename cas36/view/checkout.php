@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Order</title>
+    <title>Checkout</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css">
     <link rel="stylesheet" href="../css/bootstrap.css">
@@ -29,8 +29,8 @@
     $cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
     $total = isset($_SESSION['total']) ? $_SESSION['total'] : array();
     $amount = isset($_SESSION['amount']) ? $_SESSION['amount'] : array();
-    if (isset($_SESSION['loggedin'])) {
-        $loggedin = $_SESSION['loggedin'];
+    if (isset($_SESSION['logged_in'])) {
+        $logged_in = $_SESSION['logged_in'];
     }
 ?>
 <nav class="navbar fixed-top navbar-expand-lg  navbar-dark bg-dark">
@@ -54,7 +54,7 @@
                         <a class="dropdown-item" href="#">Newsletter</a>
                     </div>
                 </li>
-                <?php  if(empty($_SESSION['loggedin'])){ ?>
+                <?php  if(empty($_SESSION['logged_in'])){ ?>
                 <li class="nav-item">
                     <!-- <a class="nav-link" href="routes.php?page=showlogin">Login<span class="sr-only">(current)</span></a> -->
                 </li>
@@ -66,18 +66,18 @@
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <span class="text-white"><?php
-                if(!empty($_SESSION['loggedin']) && !empty($loggedin['name'])){ //na ovaj nacin resen problem undefind variable
-                  echo "Logged in : " . $loggedin['name'];
+                if(!empty($_SESSION['logged_in']) && !empty($logged_in['name'])){ //na ovaj nacin resen problem undefind variable
+                  echo "Logged in : " . $logged_in['name'];
                  } ?>&nbsp;&nbsp;</span>
-                 <?php if(isset($_SESSION['loggedin'])){ ?>
+                 <?php if(isset($_SESSION['logged_in'])){ ?>
                 <!-- <input class="btn btn-sm btn-outline-warning" type="submit" name="page" value="Logout"> -->
                  <?php } ?>
             </form>
 
         </div>
     </nav>
-<div class="container mt-5 mb-5">
-   <h1 class="text-center">Order cart</h1>
+<div class="container mt-5 p-5 mb-5">
+   <h1 class="text-center">Checkout</h1>
     <footer class=" bg-dark fixed-bottom">
         <div class="container text-center">
 
