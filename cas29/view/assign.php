@@ -116,7 +116,7 @@
                             <option value=""></option>
                             <?php
                             foreach ($alldrivers as $driver) {
-                                echo "<option value='$driver[idvozaca]'>$driver[ime]  $driver[prezime] ,$driver[godiste]</option>";
+                                echo "<option value='$driver[idvozaca]'>$driver[ime],$driver[prezime],$driver[godiste]</option>";
                             }
                             ?>
                         </select>
